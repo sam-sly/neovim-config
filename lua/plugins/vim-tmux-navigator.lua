@@ -1,9 +1,7 @@
 return {
   'christoomey/vim-tmux-navigator',
-  --lazy = true,
   config = function()
     local keymap = vim.keymap
-
     -- tmux navigator
     vim.g.tmux_navigator_no_mappings = 1
     keymap.set("n", "<C-h>", ":TmuxNavigateLeft<cr>", { silent = true })

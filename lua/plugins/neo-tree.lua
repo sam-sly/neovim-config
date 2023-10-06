@@ -7,8 +7,8 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
+    -- Neotree Keymaps
     local keymap = vim.keymap
-
     keymap.set("n", "<leader>e", ":Neotree toggle<cr>", { desc = "Open file explorer", silent = true })
   end
 }

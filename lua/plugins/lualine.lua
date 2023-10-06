@@ -24,6 +24,5 @@ return {
       'neo-tree',
       'trouble'
     }
-  },
-  config = true
+  }
 }
