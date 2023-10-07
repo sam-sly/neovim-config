@@ -24,4 +24,4 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- close neovim
-keymap.set('n', '<leader>qq', ':x<cr>', { desc = "Quit Neovim", silent = true })
+keymap.set('n', '<leader>q', ':x<cr>', { desc = "Quit Neovim", silent = true })
