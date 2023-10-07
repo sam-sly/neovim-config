@@ -31,7 +31,7 @@ return {
     })
     -- Bufferline Keymaps
     local keymap = vim.keymap
-    keymap.set("n", "<S-h>", ":BufferLineCycleNext<cr>", { silent = true })
-    keymap.set("n", "<S-l>", ":BufferLineCyclePrev<cr>", { silent = true })
+    keymap.set("n", "<S-l>", ":BufferLineCycleNext<cr>", { silent = true })
+    keymap.set("n", "<S-h>", ":BufferLineCyclePrev<cr>", { silent = true })
   end
 }

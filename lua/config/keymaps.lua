@@ -14,6 +14,8 @@ keymap.set("n", "<leader>so", "<C-w>o", { desc = "Close all other windows" })
 -- file management
 keymap.set("n", "<leader>bw", ":w<cr>", { desc = "Write file", silent = true })
 keymap.set("n", "<leader>bs", ":w<cr>:so<cr>", { desc = "Source file", silent = true })
+keymap.set("n", "<leader>x", ":w<cr>:bd<cr>", { desc = "Write file and close", silent = true })
+keymap.set("n", "<leader>X", ":bdelete<cr>", { desc = "Close file without saving", silent = true })
 keymap.set("n", "<leader>bc", ":w<cr>:bd<cr>", { desc = "Write file and close", silent = true })
 keymap.set("n", "<leader>bq", ":bd<cr>", { desc = "Close file without saving", silent = true })
 
@@ -22,4 +24,4 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- close neovim
-keymap.set('n', '<leader>x', ':x<cr>', { desc = "Save and exit", silent = true })
+keymap.set('n', '<leader>qq', ':x<cr>', { desc = "Quit Neovim", silent = true })
