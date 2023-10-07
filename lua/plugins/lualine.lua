@@ -9,7 +9,7 @@ return {
         { 'diagnostics', sources = { 'nvim_diagnostic', 'nvim_lsp', 'vim_lsp' } },
         { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
         { 'filename', symbols = {
-          modified = "",
+          modified = "",
           newfile = "",
           readonly = "",
           unnamed = ""
