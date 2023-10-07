@@ -4,6 +4,8 @@ return {
   opts = {
     lsp = {
       auto_attach = true
-    }
+    },
+    highlight = true,
+    separator = '  '
   }
 }

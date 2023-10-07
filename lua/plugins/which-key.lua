@@ -12,7 +12,9 @@ return {
       s = { name = 'split' },
       b = { name = 'buffer' },
       q = { name = 'quit' },
-      w = { name = 'workspace' }
+      w = { name = 'workspace' },
+      c = { name = 'code' },
+      r = { name = 'rename/restart' }
     }, { prefix = '<leader>' })
   end
 }
