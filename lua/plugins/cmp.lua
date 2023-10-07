@@ -7,12 +7,14 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'saadparwaiz1/cmp_luasnip'
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip'
   },
   config = function()
     -- Set up nvim-cmp.
     local cmp = require'cmp'
-    
+
     cmp.setup({
       snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -71,12 +73,5 @@ return {
         { name = 'cmdline' }
       })
     })
-
-    -- Set up lspconfig.
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    --  capabilities = capabilities
-    --}
   end
 }
