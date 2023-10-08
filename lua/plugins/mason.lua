@@ -13,6 +13,6 @@ return {
   },
   config = true,
   keys = {
-    { "<leader>M", ":Mason<cr>", desc = "Mason", silent = true }
+    { "<leader>m", ":Mason<cr>", desc = "Mason", silent = true }
   }
 }
