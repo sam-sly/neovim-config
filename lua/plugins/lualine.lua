@@ -6,7 +6,7 @@ return {
     sections = {
       lualine_a = {'mode'},
       lualine_b = {
-        { 'diagnostics', sources = { 'nvim_diagnostic', 'nvim_lsp', 'vim_lsp' } },
+        { 'diagnostics', sources = { 'nvim_lsp' } },
         { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
         { 'filename', symbols = {
           modified = "",
@@ -23,7 +23,7 @@ return {
       },
       lualine_x = {'diff'},
       lualine_y = {'branch'},
-      lualine_z = {{ 'location', padding = { left = 0, right = 0 } }}
+      lualine_z = {{ 'location', padding = { left = 0, right = 0.5 } }}
     },
     extensions = {
       'fugitive',
