@@ -45,3 +45,9 @@ opt.splitbelow = true
 
 -- mouse control
 opt.mouse = "a"
+
+-- backups & undo history
+opt.backup = false
+opt.swapfile = false
+opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+opt.undofile = true
