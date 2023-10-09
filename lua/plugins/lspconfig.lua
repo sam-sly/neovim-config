@@ -164,15 +164,5 @@ return {
       },
     })
 
-    -- local servers = mason_lspconfig.get_installed_servers()
-    --
-    -- for i = 0, #(servers), 1
-    --   do
-    --     -- lspconfig[servers[i]].setup({
-    --     --   capabilities = capabilities,
-    --     --   on_attach = on_attach
-    --     -- })
-    --   end
-
   end
 }
