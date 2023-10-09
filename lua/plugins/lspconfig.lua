@@ -14,8 +14,6 @@ return {
     mason.setup()
     mason_lspconfig.setup({
       ensure_installed = {
-        "html",
-        "cssls",
         "lua_ls",
         "pyright",
         "bashls",
@@ -28,7 +26,7 @@ return {
       automatic_installation = true
     })
 
-    -- Setup language servers.
+    -- Setup language servers options
     local lspconfig = require('lspconfig')
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
@@ -89,80 +87,40 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure css server
-    lspconfig["cssls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure python server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure javascript server
-    lspconfig["eslint"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure bash server
-    lspconfig["bashls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure json server
-    lspconfig["jsonls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure c++ server
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure latex server
-    lspconfig["ltex"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure ts server
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
-        Lua = {
-          -- make the language server recognize "vim" global
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            -- make language server aware of runtime files
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
-          },
-        },
-      },
-    })
-
+    -- Setup LSP Servers with Handlers
+    require("mason-lspconfig").setup_handlers {
+      -- The first entry (without a key) will be the default handler
+      -- and will be called for each installed server that doesn't have
+      -- a dedicated handler.
+      function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+          capabilities = capabilities,
+          on_attach = on_attach
+        }
+      end,
+      -- Next, you can provide a dedicated handler for specific servers.
+      -- For example, a handler override for the `rust_analyzer`:
+      ["lua_ls"] = function ()
+        lspconfig["lua_ls"].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = { -- custom settings for lua
+            Lua = {
+              -- make the language server recognize "vim" global
+              diagnostics = {
+                globals = { "vim" }
+              },
+              workspace = {
+                -- make language server aware of runtime files
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                  [vim.fn.stdpath("config") .. "/lua"] = true
+                }
+              }
+            }
+          }
+        })
+      end
+    }
   end
 }
