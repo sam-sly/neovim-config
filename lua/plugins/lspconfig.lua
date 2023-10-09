@@ -63,6 +63,9 @@ return {
       opts.desc = "Show buffer diagnostics"
       keymap.set("n", "<leader>d", "<cmd>TroubleToggle<cr>", opts) -- show  diagnostics for file
 
+      opts.desc = "Find buffer diagnostics"
+      keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show diagnostics for file in Telescope
+
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
