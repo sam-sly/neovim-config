@@ -14,7 +14,8 @@ return {
       q = { name = 'quit' },
       w = { name = 'workspace' },
       c = { name = 'code' },
-      r = { name = 'rename/restart' }
+      r = { name = 'rename/restart' },
+      t = { name = 'trouble' }
     }, { prefix = '<leader>' })
   end
 }
