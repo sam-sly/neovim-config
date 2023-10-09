@@ -4,16 +4,15 @@ return {
     "mason.nvim",
     "plenary.nvim"
   },
-  opts = function()
-    local nls = require("null-ls")
-    return {
-      root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+  config = function()
+    local null_ls = require("null-ls")
+
+    null_ls.setup({
       sources = {
-        nls.builtins.formatting.fish_indent,
-        nls.builtins.diagnostics.fish,
-        nls.builtins.formatting.stylua,
-        nls.builtins.formatting.shfmt,
-      }
-    }
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.completion.spell,
+      },
+    })
   end
 }
