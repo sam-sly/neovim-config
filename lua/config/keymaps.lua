@@ -15,7 +15,6 @@ keymap.set("n", "<leader>so", "<C-w>o", { desc = "Close all other windows" })
 keymap.set("n", "<leader>bw", ":w<cr>", { desc = "Write file", silent = true })
 keymap.set("n", "<leader>bs", ":w<cr>:so<cr>", { desc = "Source file", silent = true })
 keymap.set("n", "<leader>x", ":w<cr>:bd<cr>", { desc = "Write file and close", silent = true })
-keymap.set("n", "<leader>X", ":bdelete<cr>", { desc = "Close file without saving", silent = true })
 keymap.set("n", "<leader>bc", ":w<cr>:bd<cr>", { desc = "Write file and close", silent = true })
 keymap.set("n", "<leader>bq", ":bd<cr>", { desc = "Close file without saving", silent = true })
 
