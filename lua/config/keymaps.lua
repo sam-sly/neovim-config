@@ -14,7 +14,6 @@ keymap.set("n", "<leader>so", "<C-w>o", { desc = "Close all other windows" })
 -- file management
 keymap.set("n", "<leader>bw", ":w<cr>", { desc = "Write file", silent = true })
 keymap.set("n", "<leader>bs", ":w<cr>:so<cr>", { desc = "Source file", silent = true })
-keymap.set("n", "<leader>bq", ":bd<cr>", { desc = "Close file without saving", silent = true })
 
 -- visual mode: move selection
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
