@@ -1,5 +1,6 @@
 return {
   'folke/todo-comments.nvim',
+  event = 'InsertEnter',
   dependencies = { 'nvim-lua/plenary.nvim' },
   keys = {
     { '<leader>ft', ':TodoTelescope<cr>', desc = 'Find todo comments' },
