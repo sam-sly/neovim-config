@@ -2,12 +2,30 @@ return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    'williamboman/mason.nvim',
+    {
+      'williamboman/mason.nvim',
+      dependencies = {
+        'stevearc/dressing.nvim'
+      },
+      cmd = 'Mason',
+      build = ':MasonUpdate',
+      opts = {
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      },
+      keys = {
+        { "<leader>m", ":Mason<cr>", desc = "Mason", silent = true }
+      }
+    },
     'williamboman/mason-lspconfig.nvim',
     'hrsh7th/cmp-nvim-lsp'
   },
   config = function()
-    -- Setup Mason
     local mason = require('mason')
     local mason_lspconfig = require('mason-lspconfig')
 
@@ -23,7 +41,6 @@ return {
         "ltex",
         "tsserver"
       },
-      automatic_installation = true
     })
 
     -- Setup language servers options
@@ -105,22 +122,22 @@ return {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = { -- custom settings for lua
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" }
-              },
-              workspace = {
-                -- make language server aware of runtime files
-                library = {
-                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                  [vim.fn.stdpath("config") .. "/lua"] = true
-                }
+          Lua = {
+            -- make the language server recognize "vim" global
+            diagnostics = {
+              globals = { "vim" }
+            },
+            workspace = {
+              -- make language server aware of runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true
               }
             }
           }
-        })
-      end
-    }
-  end
+        }
+      })
+    end
+  }
+end
 }
