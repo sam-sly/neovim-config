@@ -1,8 +1,11 @@
 return {
   "akinsho/bufferline.nvim",
   version = "*",
-  dependencies = "nvim-tree/nvim-web-devicons",
+  event = 'BufEnter',
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
     'ojroques/nvim-bufdel',
+  },
   config = function()
     require("bufdel").setup({
       next = 'alternate',
@@ -33,14 +36,13 @@ return {
             highlight = "Directory"
           }
         },
-        color_icons = false,
+        color_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
         always_show_bufferline = true,
-        sort_by = "relative_directory"
+        sort_by = "relative_directory",
       }
     })
-
     -- Bufferline Keymaps
     local keymap = vim.keymap
     keymap.set("n", "<S-l>", ":BufferLineCycleNext<cr>", { silent = true })
