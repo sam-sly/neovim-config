@@ -6,7 +6,10 @@ return {
       char = "│",
       tab_char = "│",
     },
-    scope = { enabled = false },
+    scope = {
+      show_end = false,
+    },
   },
+  dependencies = { 'nvim-treesitter/nvim-treesitter' },
   config = true
 }
