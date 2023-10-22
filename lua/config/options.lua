@@ -1,6 +1,10 @@
 -- Basic Vim Options
 local opt = vim.opt
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- relative line numbers
 opt.number = true
 opt.relativenumber = true
@@ -26,7 +30,7 @@ opt.incsearch = true
 opt.cursorline = true
 
 -- scroll padding
-opt.scrolloff = 10
+opt.scrolloff = 12
 
 -- appearance
 opt.termguicolors = true
