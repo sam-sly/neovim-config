@@ -23,7 +23,10 @@ return {
       event = "InsertEnter",
       config = function()
         require("copilot").setup({
-          suggestion = { enabled = false },
+          suggestion = {
+            enabled = false,
+            auto_trigger = false,
+          },
           panel = { enabled = false },
         })
       end,
@@ -31,9 +34,10 @@ return {
     {
       "zbirenbaum/copilot-cmp",
       event = { "InsertEnter", "LspAttach" },
-      fix_pairs = true,
       config = function ()
-        require("copilot_cmp").setup()
+        require("copilot_cmp").setup({
+          fix_pairs = true,
+        })
       end
     },
   },
@@ -84,15 +88,13 @@ return {
         end, { "i" }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
+          if cmp.visible() and has_words_before() then
             cmp.confirm({ select = true })
             -- cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
             -- that way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
@@ -141,9 +143,9 @@ return {
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
           cmp.config.compare.exact,
-          require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
+          require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.locality,
           cmp.config.compare.kind,
           cmp.config.compare.sort_text,
