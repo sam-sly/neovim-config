@@ -8,7 +8,7 @@ return {
       tab_char = "│",
     },
     scope = {
-      show_end = false,
+      enabled = false,
     },
   },
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
