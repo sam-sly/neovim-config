@@ -26,6 +26,8 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
+
+
     local mason = require('mason')
     local mason_lspconfig = require('mason-lspconfig')
 

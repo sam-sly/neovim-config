@@ -49,6 +49,7 @@ return {
     -- Mini.files keymaps
     local keymap = vim.keymap
     keymap.set('n', '<leader>e', toggle_explorer, { desc = 'Toggle file explorer', silent = true })
+    keymap.set('n', 'g.', toggle_dotfiles, { desc = 'Toggle dotfiles', silent = true })
 
     vim.api.nvim_create_autocmd('User', {
       pattern = 'MiniFilesBufferCreate',
