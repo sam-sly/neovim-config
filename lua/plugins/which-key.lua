@@ -1,5 +1,8 @@
 return {
   "folke/which-key.nvim",
+  dependencies = {
+    'echasnovski/mini.icons', version = false
+  },
   event = "VeryLazy",
   init = function()
     vim.o.timeout = true
@@ -7,15 +10,15 @@ return {
   end,
   config = function()
     local wk = require('which-key')
-    wk.register({
-      f = { name = 'find' },
-      s = { name = 'split' },
-      b = { name = 'buffer' },
-      q = { name = 'quit' },
-      w = { name = 'workspace' },
-      c = { name = 'code' },
-      r = { name = 'rename/restart' },
-      t = { name = 'trouble' }
+    wk.add({
+      { '<leader>f', group = 'find' },
+      { '<leader>s', group = 'split' },
+      { '<leader>b', group = 'buffer' },
+      { '<leader>q', group = 'quit' },
+      { '<leader>w', group = 'workspace' },
+      { '<leader>c', group = 'code' },
+      { '<leader>r', group = 'rename/restart' },
+      { '<leader>t', group = 'trouble' }
     }, { prefix = '<leader>' })
   end
 }
