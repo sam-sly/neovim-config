@@ -24,6 +24,7 @@ return {
     },
     'williamboman/mason-lspconfig.nvim',
     'hrsh7th/cmp-nvim-lsp',
+    'nvim-java/nvim-java',
   },
   config = function()
 
@@ -41,7 +42,8 @@ return {
         "clangd",
         "eslint",
         "ltex",
-        "tsserver"
+        "tsserver",
+        "jdtls"
       },
     })
 
@@ -124,22 +126,25 @@ return {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = { -- custom settings for lua
-          Lua = {
-            -- make the language server recognize "vim" global
-            diagnostics = {
-              globals = { "vim" }
-            },
-            workspace = {
-              -- make language server aware of runtime files
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.stdpath("config") .. "/lua"] = true
+            Lua = {
+              -- make the language server recognize "vim" global
+              diagnostics = {
+                globals = { "vim" }
+              },
+              workspace = {
+                -- make language server aware of runtime files
+                library = {
+                  [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                  [vim.fn.stdpath("config") .. "/lua"] = true
+                }
               }
             }
           }
-        }
-      })
-    end
-  }
-end
+        })
+      end
+    }
+
+    require('java').setup()
+    lspconfig.jdtls.setup({})
+  end
 }
